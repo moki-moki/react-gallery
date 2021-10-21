@@ -1,3 +1,17 @@
+# React gallery
+
+This is a personal. It's a simple gallery with firebase.
+
+# Functionality
+
+Upload images to firebase
+Read/Write firebase db
+
+# To-do
+- Add user auth
+- Add so every user can upload pictures to same gallery
+- Add comment system
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
