@@ -1,38 +1,196 @@
-.App {
+/* elegant colors
+#ead7c7;
+#e4cfa9
+#f0DDBC
+
+contrast to elegant shit 
+#002939
+#157575
+#3a4257
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500&display=swap");
+
+:root {
+  --primary: #ead7c7;
+  --heading: #002939;
+  --fontFamily: "Montserrat Alternates", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--heading);
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+body {
+  background: var(--primary);
+  color: var(--heading);
+  font-family: var(--fontFamily);
+  overflow-x: hidden;
+}
+
+.navbar {
+  width: 100vw;
+  margin: 1rem 0;
+  border-bottom: 2px solid var(--heading);
+}
+
+.navbar > h2 {
+  margin: 0.3em 1em;
+}
+
+.progressBar {
+  height: 5px;
+  background: var(--heading);
+  margin-top: 20px;
+}
+
+.imageSection {
+  margin: 0 auto;
+  max-width: 1000px;
+  border: 3px solid var(--heading);
+  border-radius: 10px;
+}
+
+form {
+  margin: 30px auto 10px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+label input {
+  height: 0;
+  width: 0;
+  opacity: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+label {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--heading);
+  border-radius: 50%;
+  margin: 10px auto;
+  color: var(--heading);
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.3s ease all;
+}
+
+label:hover {
+  background-color: #be8c01;
+  border-radius: 0%;
+  cursor: pointer;
+}
+
+.grid {
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.imgContainer {
+  overflow: hidden;
+  height: 0;
+  padding: 50% 0;
+  margin: 3px;
+  position: relative;
+  opacity: 0.8;
+  transition: 0.2s ease-in all;
+}
+
+.imgContainer img {
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 150%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.imgContainer:hover {
+  opacity: 1;
+}
+
+/* modal */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.356);
+}
+
+.backdrop img {
+  display: block;
+  max-width: 60%;
+  max-height: 80%;
+  margin: 60px auto;
+  box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.356);
+  border: 3px solid black;
+}
+
+.dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: dual-ring 1.2s linear infinite;
+}
+
+@media screen and (max-width: 542px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@media screen and (max-width: 390px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
+@keyframes dual-ring {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
+  }
+}
+
+/* img animate */
+@keyframes imgOpacity {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
   }
 }
