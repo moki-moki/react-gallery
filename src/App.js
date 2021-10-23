@@ -1,22 +1,51 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  onAuthStateChanged,
+} from "firebase/auth";
+import { auth } from "./firebase/config";
 import "./App.css";
-import Grid from "./components/Grid";
-import Header from "./components/Header";
-import Modal from "./components/Modal";
-import Navbar from "./components/Navbar";
-import UploadForm from "./components/UploadForm";
-
+import Home from "./components/Home";
 function App() {
-  const [selected, setSelected] = useState(null);
+  const [signedIn, setSignedIn] = useState(false);
+
+  const provider = new GoogleAuthProvider();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      console.log(user);
+      if (user) {
+        return setSignedIn(true);
+      }
+      setSignedIn(false);
+    });
+  }, []);
+
+  const handleGoogleAuth = () => {
+    signInWithPopup(auth, provider)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
-      <Navbar />
-      <div className="imageSection">
-        <Header />
-        <UploadForm />
-        <Grid setSelected={setSelected} />
-        {selected && <Modal selected={selected} setSelected={setSelected} />}
-      </div>
+      {signedIn ? (
+        <Home />
+      ) : (
+        <div className="signInHeader">
+          <h1>Welcome to an online Gallery</h1>
+          <p>Please sign in to enter</p>
+          <button className="authBtns" onClick={handleGoogleAuth}>
+            in with google
+          </button>
+        </div>
+      )}
     </>
   );
 }
