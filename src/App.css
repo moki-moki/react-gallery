@@ -29,6 +29,7 @@ h2 {
 }
 
 body {
+  height: 100vh;
   background: var(--primary);
   color: var(--heading);
   font-family: var(--fontFamily);
@@ -88,6 +89,7 @@ body {
 }
 
 .imageSection {
+  height: 100%;
   margin: 0 auto;
   max-width: 1000px;
   border: 3px solid var(--heading);
@@ -208,6 +210,33 @@ label:hover {
 
 .signInHeader > p {
   margin: 1em 0;
+}
+
+.footer {
+  position: sticky;
+  top: 100%;
+  height: 60px;
+  margin-top: 15px;
+  background: #c5af9d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px 15px 0 0;
+}
+
+.footer p {
+  font-size: 23px;
+}
+
+.footer p a {
+  color: rgb(0, 108, 151);
+  transition: 0.2s ease all;
+  font-weight: bold;
+}
+
+.footer p a:hover {
+  color: var(--btn);
+  cursor: pointer;
 }
 
 @media screen and (max-width: 542px) {

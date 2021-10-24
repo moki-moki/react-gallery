@@ -8,6 +8,7 @@ import {
 import { auth } from "./firebase/config";
 import "./App.css";
 import Home from "./components/Home";
+import Footer from "./components/Footer";
 function App() {
   const [signedIn, setSignedIn] = useState(false);
 
@@ -42,10 +43,11 @@ function App() {
           <h1>Welcome to an online Gallery</h1>
           <p>Please sign in to enter</p>
           <button className="authBtns" onClick={handleGoogleAuth}>
-            in with google
+            Google sign in
           </button>
         </div>
       )}
+      <Footer />
     </>
   );
 }
