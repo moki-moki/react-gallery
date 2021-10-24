@@ -6,11 +6,11 @@ This is a personal. It's a simple gallery with firebase.
 
 Upload images to firebase
 Read/Write firebase db
+User auth
 
 # To-do
-- Add user auth
-- Add so every user can upload pictures to same gallery
 - Add comment system
+- Add like system
 
 # Getting Started with Create React App
 
