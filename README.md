@@ -1,12 +1,14 @@
 # React gallery
 
 This is a personal. It's a simple gallery with firebase.
-
 # Functionality
 
 Upload images to firebase
 Read/Write firebase db
 User auth
+
+https://user-images.githubusercontent.com/88168610/139439898-68a64bbf-783b-49a3-8806-f927abe1367d.mp4
+
 
 # To-do
 - Add comment system
